@@ -2,41 +2,43 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Pokemon Chart</title>
+    <title>Form</title>
   </head>
   <body>
-    <h1>First Gen Pokemon Chart</h1>
-    <table border="1">
-      <thead>
-        <tr>
-          <td>Image</td>
-          <td>Name</td>
-          <td>Type</td>
-          <td>Evolves To</td>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><img src="http://img4.wikia.nocookie.net/__cb20140328190757/pokemon/images/thumb/2/21/001Bulbasaur.png/200px-001Bulbasaur.png" alt="bulba pic"></td>
-          <td>Bulbasaur</td>
-          <td>Grass/Poison </td>
-          <td><a href="http://pokemon.wikia.com/wiki/Ivysaur ">Ivysaur</a></td>
-        </tr>
-      </tbody>
-        <tr>
-          <td><img src="http://img4.wikia.nocookie.net/__cb20140724195345/pokemon/images/thumb/7/73/004Charmander.png/200px-004Charmander.png" alt=""></td>
-          <td>Charmander</td>
-          <td>Fire</td>
-          <td><a href="http://pokemon.wikia.com/wiki/Charmeleon">Charmeleon</a></td>
-        </tr>
-      </tbody>
-        <tr>
-          <td><img src="http://img1.wikia.nocookie.net/__cb20140328191525/pokemon/images/thumb/3/39/007Squirtle.png/200px-007Squirtle.png" alt=""></td>
-          <td>Squirtle</td>
-          <td>Water</td>
-          <td><a href="http://pokemon.wikia.com/wiki/Wartortle">Wartortle</a></td>
-        </tr>
-      </tbody>
-    </table>
+    <h1>Register</h1>
+    <form class="" action="index.html" method="post">
+      <label for="fName">First name : </label>
+      <input id="fName" type="text" name="uName" required>
+      <label for="lName">Last name : </label>
+      <input id="lName" type="text" name="uName" required> <br>
+      <label for="sex">Male : </label>
+      <input id="sex" type="radio" name="sex" value="Male">
+      <label for="sex">Female : </label>
+      <input id="sex" type="radio" name="sex" value="Female">
+      <label for="sex">Others : </label>
+      <input id="sex" type="radio" name="sex" value="Others"><br>
+      <label for="mail">Email : </label>
+      <input id="mail" type="email"  name="email" required>
+      <label for="password">Password : </label>
+      <input id="password" type="password"  name="password" pattern=".{8,12}" required title="8 to 12 char" required><br>
+      Birthday :
+      <select class="" name="Month">
+        <option value="">Jan</option>
+        <option value="">Feb</option>
+      </select>
+      <select class="" name="Day">
+        <option value="">01</option>
+        <option value="">02</option>
+      </select>
+      <select class="" name="Year">
+        <option value="">2000</option>
+        <option value="">2001</option>
+      </select>
+      <br>
+      I Agree to the terms and conditions
+      <input type="checkbox" name="Cond" required>
+      <br>
+      <input type="submit" name="Submit" value="Submit">
+    </form>
   </body>
 </html>
