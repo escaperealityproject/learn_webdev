@@ -1,5 +1,5 @@
 var squares = document.querySelectorAll(".square");
-var colors = ["rgb(255, 0, 0)", "rgb(255, 255, 0)", "rgb(0, 255, 0)", "rgb(0, 255, 255)", "rgb(0, 0, 255)", "rgb(255, 0, 255)"];
+var colors = generateRandomColors(6);
 var pickedColor = pickColor();
 var messageDisplay = document.querySelector("#message");
 
@@ -29,5 +29,18 @@ function changeColors(color) {
 }
 
 function pickColor() {
-  return colors[Math.floor(Math.random() * colors.length)];
+  return colors[giveRandNumUpto(colors.length)];
+}
+
+function generateRandomColors(num){
+  giveRandNumUpto(256);
+  var colors=[];
+  for(var i=0;i<num;i++){
+    colors[i]="rgb("+giveRandNumUpto(256)+", "+giveRandNumUpto(256)+", "+giveRandNumUpto(256)+")";
+  }
+  return colors;
+}
+
+function giveRandNumUpto(num){
+  return Math.floor(Math.random() * num);
 }
