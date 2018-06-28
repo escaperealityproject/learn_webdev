@@ -10,9 +10,10 @@ var numSquares = 6;
 genPickColors(numSquares);
 
 easyBtn.addEventListener("click", function() {
+  resetBackgroundColors();
   this.classList.add("selected");
   hardBtn.classList.remove("selected");
-  numSquares=3;
+  numSquares = 3;
   genPickColors(numSquares);
   for (var i = numSquares; i < squares.length; i++) {
     squares[i].style.display = "none";
@@ -20,9 +21,10 @@ easyBtn.addEventListener("click", function() {
 })
 
 hardBtn.addEventListener("click", function() {
+  resetBackgroundColors();
   this.classList.add("selected");
   easyBtn.classList.remove("selected");
-  numSquares=6;
+  numSquares = 6;
   genPickColors(numSquares);
   for (var i = 3; i < squares.length; i++) {
     squares[i].style.display = "block";
@@ -32,7 +34,8 @@ hardBtn.addEventListener("click", function() {
 document.getElementById("colorDisplay").textContent = pickedColor;
 
 resetButton.addEventListener("click", function() {
-  resetButton.textContent = "New Colors";
+  resetBackgroundColors();
+  document.querySelector(".selected").style.backgroundColor = "steelblue";
   genPickColors(numSquares);
 })
 
@@ -45,7 +48,7 @@ for (var i = 0; i < colors.length; i++) {
       messageDisplay.textContent = "Correct";
       changeColors(pickedColor);
       resetButton.textContent = "Play Again!";
-      document.getElementById("colorDisplay").style.backgroundColor = pickedColor;
+
     } else {
       this.style.backgroundColor = "#232323"
       messageDisplay.textContent = "Wrong";
@@ -57,6 +60,8 @@ function changeColors(color) {
   for (var i = 0; i < squares.length; i++) {
     squares[i].style.backgroundColor = color;
   }
+  document.querySelector("h1").style.backgroundColor = pickedColor;
+  document.querySelector(".selected").style.backgroundColor = pickedColor;
 }
 
 function pickColor() {
@@ -83,5 +88,11 @@ function genPickColors(num) {
   colors = generateRandomColors(num);
   pickedColor = pickColor();
   document.getElementById("colorDisplay").textContent = pickedColor;
-  document.getElementById("colorDisplay").style.backgroundColor = "#232323";
+}
+
+function resetBackgroundColors() {
+  document.querySelector(".selected").style.backgroundColor = "white";
+  document.querySelector("h1").style.backgroundColor = "steelblue";
+  messageDisplay.textContent = "";
+  // document.querySelector(".selected").style.backgroundColor = "steelblue";
 }
